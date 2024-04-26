@@ -13,8 +13,9 @@
     "@saas/auth": "workspace:*",
     "bcryptjs": "^2.4.3",
     "fastify": "^4.26.2",
+    "fastify-plugin": "^4.5.1",
     "fastify-type-provider-zod": "^1.1.9",
-    "zod": "^3.22.4"
+    "zod": "^3.23.4"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
@@ -25,7 +26,7 @@
     "@types/node": "^20.12.7",
     "chalk": "^5.3.0",
     "prisma": "^5.13.0",
-    "tsx": "^4.7.2"
+    "tsx": "^4.7.3"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"

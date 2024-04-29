@@ -2,7 +2,10 @@
   "name": "@saas/api",
   "version": "0.0.1",
   "scripts": {
-    "dev": "tsx watch src/http/server.ts"
+    "dev": "pnpm env:load tsx watch src/http/server.ts",
+    "db:migrate": "pnpm env:load prisma migrate dev",
+    "db:studio":"pnpm env:load prisma studio",
+    "env:load": "dotenv -e ../../.env --"
   },
   "dependencies": {
     "@fastify/cors": "^9.0.1",
@@ -19,12 +22,14 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
+    "@saas/env": "workspace:*",
     "@saas/eslint-config": "workspace:*",
     "@saas/prettier": "workspace:*",
     "@saas/tsconfig": "workspace:*",
     "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20.12.7",
     "chalk": "^5.3.0",
+    "dotenv-cli": "^7.4.1",
     "prisma": "^5.13.0",
     "tsx": "^4.7.3"
   },

@@ -31,9 +31,7 @@ export async function updateOrganization(app: FastifyInstance) {
             slug: z.string(),
           }),
           response: {
-            204: z.object({
-              organizationId: z.null(),
-            }),
+            204: z.null(),
           },
         },
       },

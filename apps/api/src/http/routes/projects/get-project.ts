@@ -34,6 +34,7 @@ export async function getProject(app: FastifyInstance) {
                 slug: z.string(),
                 avatarUrl: z.string().nullable(),
                 ownerId: z.string(),
+                organizationId: z.string().uuid(),
                 owner: z.object({
                   id: z.string().uuid(),
                   name: z.string().nullable(),
@@ -65,6 +66,7 @@ export async function getProject(app: FastifyInstance) {
             description: true,
             ownerId: true,
             avatarUrl: true,
+            organizationId: true,
             owner: {
               select: {
                 id: true,

@@ -4,6 +4,7 @@ import z from 'zod'
 
 import { auth } from '@/http/middlewares/auth'
 import { prisma } from '@/lib/prisma'
+import { roleSchema } from '@saas/auth';
 
 export async function getOrganizations(app: FastifyInstance) {
   app
@@ -25,11 +26,7 @@ export async function getOrganizations(app: FastifyInstance) {
                   name: z.string(),
                   slug: z.string(),
                   avatarUrl: z.string().url().nullable(),
-                  role: z.union([
-                    z.literal('ADMIN'),
-                    z.literal('MEMBER'),
-                    z.literal('BILLING'),
-                  ]),
+                  role: roleSchema,
                 }),
               ),
             }),

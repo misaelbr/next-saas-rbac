@@ -1,3 +1,4 @@
+import { roleSchema } from '@saas/auth'
 import type { FastifyInstance } from 'fastify'
 import { ZodTypeProvider } from 'fastify-type-provider-zod'
 import z from 'zod'
@@ -29,11 +30,7 @@ export async function getMembers(app: FastifyInstance) {
                 z.object({
                   userId: z.string(),
                   id: z.string(),
-                  role: z.union([
-                    z.literal('ADMIN'),
-                    z.literal('MEMBER'),
-                    z.literal('BILLING'),
-                  ]),
+                  role: roleSchema,
                   name: z.string().nullable(),
                   avatarUrl: z.string().url().nullable(),
                   email: z.string().email(),

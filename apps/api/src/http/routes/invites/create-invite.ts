@@ -10,7 +10,7 @@ import { getUserPermissions } from '@/utils/get-user-permissions'
 import { BadRequestError } from '../_errors/bad-request-error'
 import { UnauthorizedError } from '../_errors/unauthorized-error'
 
-export async function createInvites(app: FastifyInstance) {
+export async function createInvite(app: FastifyInstance) {
   app
     .withTypeProvider<ZodTypeProvider>()
     .register(auth)

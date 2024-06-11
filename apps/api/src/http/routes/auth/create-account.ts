@@ -12,7 +12,7 @@ export async function createAccount(app: FastifyInstance) {
     '/users',
     {
       schema: {
-        tags: ['auth'],
+        tags: ['Auth'],
         summary: 'Create a new account',
         description: 'Create a new account with name, email and password.',
         body: z.object({

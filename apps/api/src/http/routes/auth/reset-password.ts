@@ -12,7 +12,7 @@ export async function resetPassword(app: FastifyInstance) {
     '/password/reset',
     {
       schema: {
-        tags: ['auth'],
+        tags: ['Auth'],
         summary: 'Reset password',
         description: 'Receive new password after passaword token validation',
         body: z.object({

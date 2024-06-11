@@ -12,7 +12,7 @@ export async function authenticateWithPassword(app: FastifyInstance) {
     '/sessions/password',
     {
       schema: {
-        tags: ['auth'],
+        tags: ['Auth'],
         summary: 'Authenticate method with password',
         description:
           'Authenticate method with email and password and return a session token',

@@ -33,7 +33,7 @@ export async function ability() {
   }
 
   const ability = defineAbilitiyFor({
-    id: membership.id,
+    id: membership.userId,
     role: membership.role,
   })
 
@@ -51,7 +51,7 @@ export async function auth() {
     const { user } = await getProfile()
 
     return { user }
-  } catch (err) {}
+  } catch {}
 
   redirect('/api/auth/sign-out')
 }

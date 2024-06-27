@@ -39,7 +39,7 @@ export async function authenticateWithGithub(app: FastifyInstance) {
       )
       githubOAuthURL.searchParams.set(
         'redirect_uri',
-        env.GITHUB_OAUTH_REDIRECT_URI,
+        env.GITHUB_OAUTH_CLIENT_REDIRECT_URI,
       )
       githubOAuthURL.searchParams.set('code', code)
 

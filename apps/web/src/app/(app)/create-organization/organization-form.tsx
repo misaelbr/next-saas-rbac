@@ -58,20 +58,18 @@ export function OrganizationForm() {
           </p>
         )}
       </div>
-      <div className="space-y-1">
-        <div className="flex items-start space-x-2">
-          <div className="translate-y-0.5">
-            <Checkbox
-              name="shouldAttachUsersByDomain"
-              id="shouldAttachUsersByDomain"
-              className="translate-y-0.5"
-            />
-          </div>
+      <div className="items-top flex space-x-2">
+        <Checkbox
+          name="shouldAttachUsersByDomain"
+          id="shouldAttachUsersByDomain"
+          className="translate-y-0.5"
+        />
+        <div className="grid gap-1.5 leading-none">
           <label htmlFor="shouldAttachUsersByDomain" className="space-y-1">
             <span className="text-sm font-medium leading-none">
               Vincular usuários pelo domínio
             </span>
-            <p>
+            <p className="text-sm text-muted-foreground">
               Isto vai automaticamente convidar todos os membros com o e-mail do
               domínio para esta organização
             </p>

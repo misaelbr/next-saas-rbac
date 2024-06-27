@@ -11,7 +11,7 @@ export function useFormState(
   onSucess?: () => Promise<void> | void,
   initialState?: FormState,
 ) {
-  const [isPending, startTransiction] = useTransition()
+  const [isPending, startTransition] = useTransition()
 
   const [formState, setFormState] = useState(
     initialState ?? {
@@ -27,7 +27,7 @@ export function useFormState(
     const form = event.currentTarget
     const data = new FormData(form)
 
-    startTransiction(async () => {
+    startTransition(async () => {
       const state = await action(data)
 
       if (state.success === true && onSucess) {

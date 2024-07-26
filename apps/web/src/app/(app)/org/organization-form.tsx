@@ -9,12 +9,27 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useFormState } from '@/hooks/use-form-state'
 
-import { createOrganizationAction } from './actions'
+import {
+  createOrganizationAction,
+  type OrganizationSChema,
+  updateOrganizationAction,
+} from './actions'
 
-export function OrganizationForm() {
-  const [{ message, success, errors }, handleSubmit, isPending] = useFormState(
-    createOrganizationAction,
-  )
+interface OrganizationFormProps {
+  isUpdating?: boolean
+  initialData?: OrganizationSChema
+}
+
+export function OrganizationForm({
+  isUpdating = false,
+  initialData,
+}: OrganizationFormProps) {
+  const formAction = isUpdating
+    ? updateOrganizationAction
+    : createOrganizationAction
+
+  const [{ message, success, errors }, handleSubmit, isPending] =
+    useFormState(formAction)
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
@@ -35,7 +50,7 @@ export function OrganizationForm() {
 
       <div className="space-y-1">
         <Label htmlFor="name">Nome da organização</Label>
-        <Input name="name" id="name" />
+        <Input name="name" id="name" defaultValue={initialData?.name} />
         {errors?.name && (
           <p className="text-xs text-red-500 dark:text-red-400">
             {errors.name[0]}
@@ -51,6 +66,7 @@ export function OrganizationForm() {
           id="domain"
           inputMode="url"
           placeholder="exemplo.com"
+          defaultValue={initialData?.domain ?? undefined}
         />
         {errors?.domain && (
           <p className="text-xs text-red-500 dark:text-red-400">
@@ -63,6 +79,7 @@ export function OrganizationForm() {
           name="shouldAttachUsersByDomain"
           id="shouldAttachUsersByDomain"
           className="translate-y-0.5"
+          defaultChecked={initialData?.shouldAttachUsersByDomain}
         />
         <div className="grid gap-1.5 leading-none">
           <label htmlFor="shouldAttachUsersByDomain" className="space-y-1">

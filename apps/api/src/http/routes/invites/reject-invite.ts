@@ -51,7 +51,7 @@ export async function rejectInvite(app: FastifyInstance) {
           throw new BadRequestError(`User not found`)
         }
 
-        if (invite.email === user.email) {
+        if (invite.email !== user.email) {
           throw new BadRequestError(`This invit belongs to another user`)
         }
 

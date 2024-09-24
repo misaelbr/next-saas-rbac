@@ -114,8 +114,6 @@ app.register(getPedingInvites)
 
 app.register(getOrganizationBilling)
 
-app.listen({ port: env.SERVER_PORT }).then(() => {
-  console.log(
-    `🚀 Server is running on port http://localhost:${env.SERVER_PORT}`,
-  )
+app.listen({ port: env.PORT }).then(() => {
+  console.log(`🚀 Server is running on port http://localhost:${env.PORT}`)
 })

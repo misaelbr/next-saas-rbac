@@ -1,8 +1,12 @@
+import type { Metadata } from 'next'
+
 import { ability } from '@/auth/auth'
 
 import { Invites } from './invites'
 import { MemberList } from './member-list'
-
+export const metadata: Metadata = {
+  title: 'Membros | Misael SaaS Starter RBAC',
+}
 export default async function MembersPage() {
   const permissions = await ability()
   return (

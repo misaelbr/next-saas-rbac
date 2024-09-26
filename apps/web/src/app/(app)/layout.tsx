@@ -1,6 +1,11 @@
+import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 
 import { isAuthenticated } from '@/auth/auth'
+
+export const metadata: Metadata = {
+  title: 'Home',
+}
 
 export default function AppLayout({
   children,

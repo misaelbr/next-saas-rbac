@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 import { ability, getCurrentOrg } from '@/auth/auth'
 import {
   Card,
@@ -11,6 +13,10 @@ import { getOrganization } from '@/http/get-organization'
 import { OrganizationForm } from '../../organization-form'
 import { Billing } from './billing'
 import { ShutdownOrganizationButton } from './shutdown-organization-button'
+
+export const metadata: Metadata = {
+  title: 'Configurações e Cobranças | Misael SaaS Starter RBAC',
+}
 
 export default async function Settings() {
   const currentOrg = getCurrentOrg()
